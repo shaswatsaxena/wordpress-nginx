@@ -40,8 +40,8 @@ server {
 	index index.php;
 
 	# Overrides logs defined in nginx.conf, allows per site logs.
-	access_log /sites/example/logs/access.log;
-	error_log /sites/example/logs/error.log;
+	access_log /home/infilimits/example.com/logs/access.log;
+	error_log /home/infilimits/example.com/logs/error.log;
 
 	# Default server block rules
 	include global/server/defaults.conf;
