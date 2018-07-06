@@ -73,9 +73,6 @@ server {
 
 		# Define caching time.
 		fastcgi_cache_valid 60m;
-		
-		#Ignore Cache Control Headers
-		fastcgi_ignore_headers Cache-Control;
 	}
 
 	# Rewrite robots.txt
