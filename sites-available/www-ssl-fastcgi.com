@@ -3,24 +3,6 @@
 # inactive=60m will remove cached items that haven't been accessed for 60 minutes or more.
 fastcgi_cache_path /home/infilimits/www.example.com/cache levels=1:2 keys_zone=www.example.com:100m inactive=60m;
 
-# Redirect http to https
-server {
-	listen 80;
-	listen [::]:80;
-	server_name example.com www.example.com;
-
-	return 301 https://www.example.com$request_uri;
-}
-
-# Redirect non-www to www
-server {
-	listen 443;
-	listen [::]:443;
-	server_name example.com;
-
-	return 301 https://www.example.com$request_uri;
-}
-
 server {
 	# Ports to listen on, uncomment one.
 	listen 443 ssl http2;
@@ -82,4 +64,22 @@ server {
 	# location ~ /purge(/.*) {
 	#	fastcgi_cache_purge www.example.com "$scheme$request_method$host$1";
 	# }
+}
+
+# Redirect http to https
+server {
+	listen 80;
+	listen [::]:80;
+	server_name example.com www.example.com;
+
+	return 301 https://www.example.com$request_uri;
+}
+
+# Redirect non-www to www
+server {
+	listen 443;
+	listen [::]:443;
+	server_name example.com;
+
+	return 301 https://www.example.com$request_uri;
 }
